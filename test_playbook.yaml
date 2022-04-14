@@ -1,0 +1,14 @@
+---
+-
+  hosts: all
+  name: "test ansible"
+  strategy: free
+  tasks:
+      -
+        name: set start
+        set_fact:
+            start_apps_tm : "{{ ansible_date_time.epoch }}"
+      -
+        debug:
+          var: "{{ start_apps_tm }}"
+        name: "display start_apps_tm 1"
