@@ -7,8 +7,28 @@
       -
         name: set start
         set_fact:
-            start_apps_tm : "{{ ansible_date_time.epoch }}"
+          start_apps_tm : "{{ ansible_date_time.epoch }}"
       -
         debug:
           var: "{{ start_apps_tm }}"
-        name: "display start_apps_tm 1"
+        name: display start_apps_tm
+      -
+        name: Run some command
+        command: /bin/whoami
+        ignore_errors: true
+        register: command_output1
+      -
+        name: Run some command 2
+        command: /bin/sleep 10
+      -
+        debug:
+          var: command_output1
+        name: Command 1 output
+      -
+        name: set end
+        set_fact:
+          end_apps_tm : "{{ ansible_date_time.epoch }}"
+      -
+        debug:
+          var: "{{ end_apps_tm }}"
+        name: display end_apps_tm
