@@ -9,6 +9,7 @@
         command: /bin/whoami
         ignore_errors: true
         register: command_output1
+        become: yes
       -
         debug:
           var: command_output1
