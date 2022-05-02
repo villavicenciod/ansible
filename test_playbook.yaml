@@ -1,6 +1,6 @@
 ---
 -
-  hosts: zookeeper:kafka_broker
+  hosts: all
   name: "test ansible"
   strategy: free
   tasks:
